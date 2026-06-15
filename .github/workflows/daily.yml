@@ -26,6 +26,17 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: Materialize profile（从加密 Secret 还原私密画像，使云端也能个性化）
+        env:
+          PROFILE_YAML: ${{ secrets.PROFILE_YAML }}
+        run: |
+          if [ -n "$PROFILE_YAML" ]; then
+            printf '%s' "$PROFILE_YAML" > profile.yaml
+            echo "profile.yaml 已从 Secret 写入（个性化模式）"
+          else
+            echo "无 PROFILE_YAML Secret，使用通用模式"
+          fi
+
       - name: Scan the radar
         env:
           FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
