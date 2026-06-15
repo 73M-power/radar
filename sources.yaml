@@ -1,0 +1,56 @@
+# ============================================================
+# 信号源清单 —— 雷达要「广撒网」，源越多元、越偏"新东西/机会"，
+# 越能筛出有行动价值的信号。加新源：复制一段，填 name / type / url。
+#   type:  rss | hackernews   （hackernews 可加 tags: show_hn 抓新产品）
+#   {RSSHUB}: 会被替换成 RSSHUB_BASE 环境变量
+# ============================================================
+
+settings:
+  max_signals: 6       # 每天最多推几条信号
+  lookback_hours: 48   # 看最近多少小时
+
+sources:
+  # ============ 发现型：新工具 / 新产品 / 机会 ============
+  - name: Product Hunt 新品
+    type: rss
+    url: https://www.producthunt.com/feed
+
+  - name: Show HN 新作品
+    type: hackernews
+    tags: show_hn
+    min_points: 40
+
+  - name: Hacker News 热榜
+    type: hackernews
+    min_points: 150
+
+  - name: TechCrunch
+    type: rss
+    url: https://techcrunch.com/feed/
+
+  # ============ 💰 投资 / 创业（补认知 + 抓机会）============
+  - name: A Wealth of Common Sense
+    type: rss
+    url: https://awealthofcommonsense.com/feed/
+
+  - name: Investing.com 市场
+    type: rss
+    url: https://www.investing.com/rss/news.rss
+
+  - name: Marginal Revolution 经济
+    type: rss
+    url: https://marginalrevolution.com/feed
+
+  # ============ 💪 健身 / 营养 ============
+  - name: Precision Nutrition 循证营养
+    type: rss
+    url: https://www.precisionnutrition.com/feed
+
+  - name: Reddit r/Fitness
+    type: rss
+    url: https://www.reddit.com/r/Fitness/.rss
+
+  # ============ 中文源（需自建 RSSHub 后启用） ============
+  # - name: 少数派
+  #   type: rss
+  #   url: "{RSSHUB}/sspai/matrix"
